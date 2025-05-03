@@ -47,7 +47,7 @@ screen -S aztec
 ## Step 6: Run the Aztec Squencer
 
 ```bash
-./aztec-squencer.sh
+./aztec_squencer.sh
 ```
 
 ---
