@@ -28,7 +28,7 @@ cd aztec-squencer
 
 ```bash
 chmod +x docker.sh
-chmod +x aztec-squencer.sh
+chmod +x aztec_squencer.sh
 ```
 
 
