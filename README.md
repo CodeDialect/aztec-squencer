@@ -31,35 +31,20 @@ chmod +x docker.sh
 chmod +x aztec-squencer.sh
 ```
 
-## Step 4: Install Docker (if not already installed)
 
-Ensure Docker is installed and running. You can install it with:
-
-```bash
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-```
-
-Start Docker if it isnâ€™t running:
-
-```bash
-sudo systemctl start docker
-sudo systemctl enable docker
-```
-
-## Step 5: Run Docker Setup
+## Step 4: Run Docker Setup
 
 ```bash
 ./docker.sh
 ```
 
-## Step 6: Start a Screen Session
+## Step 5: Start a Screen Session
 
 ```bash
 screen -S aztec
 ```
 
-## Step 7: Run the Aztec Squencer
+## Step 6: Run the Aztec Squencer
 
 ```bash
 ./aztec-squencer.sh
