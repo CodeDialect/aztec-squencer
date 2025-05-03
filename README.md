@@ -55,25 +55,8 @@ screen -S aztec
 
 ---
 
-## Step 6: Run the Aztec Sequencer
-
-```bash
-./aztec_squencer.sh
-```
-
----
-
-## Step 7: Find Your Public IP
-
-To check and save your public IP address:
-
-```bash
-curl ipv4.icanhazip.com
-```
-
----
-
-## Step 8: Enable Firewall & Open Required Ports
+If you are using vps then
+## Step 6: Enable Firewall & Open Required Ports
 
 ```bash
 # Basic SSH Access
@@ -87,8 +70,26 @@ ufw allow 8080
 # Enable Firewall
 ufw enable
 ```
+---
+
+## Step 7: Find Your Public IP
+
+To check and save your public IP address:
+
+```bash
+curl ipv4.icanhazip.com
+```
 
 ---
+
+## Step 8: Run the Aztec Sequencer
+
+```bash
+./aztec_squencer.sh
+```
+
+---
+
 
 ## Step 9: Get the Latest Proven Block Number
 
