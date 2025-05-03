@@ -111,7 +111,7 @@ curl -s -X POST -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","method
 ---
 
 ## Step 11: Register With Discord
-
+https://discord.gg/aztec and go to start operator channel
 1. Join the official Aztec Discord.
 2. In the appropriate channel, type:
 
