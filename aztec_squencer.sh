@@ -18,7 +18,7 @@ echo -e "${PURPLE}${BOLD}"
 echo "=========================================================================="
 cat <<'EOF'
      __            _        _                    _                   
-  /\ \ \ _    | |  _ | |   _   _  _   | |_  _  _   __ 
+  /\ \ \ _    | |  _ | |   _   _  _   | |_  _  _   __  
  /  \/ // _ \  / _` | / _ \| '_ \ | | |  '_ \ | |/ _ \| '_  /
 / /\  /| (_)  (_|   /| | |  |_|  | | || |_|  /| |    / / 
 \_\ \/  \_/  \,_| \__| |_| \,__| |_| \|\_||_|   /___|
@@ -50,10 +50,19 @@ sudo apt install -y curl git sudo nano lsof net-tools software-properties-common
 if ! command -v node &>/dev/null; then
   echo -e "${BLUE}[INFO] Installing Node.js using NVM...${RESET}"
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+  echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bashrc
+  echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc
+  echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> ~/.bashrc
+
   nvm install --lts
+  nvm use --lts
+else
+  echo -e "${GREEN}[OK] Node.js already installed: $(node -v)${RESET}"
 fi
 
 # ===============================
@@ -62,6 +71,7 @@ fi
 echo -e "${BLUE}[INFO] Installing Aztec CLI...${RESET}"
 curl -s https://install.aztec.network | bash
 
+# Add to path
 echo 'export PATH="$HOME/.aztec/bin:$PATH"' >> ~/.bashrc
 export PATH="$HOME/.aztec/bin:$PATH"
 
@@ -75,7 +85,6 @@ aztec-up alpha-testnet
 # Start Node
 # ===============================
 echo -e "${BLUE}[INFO] Starting Aztec node...${RESET}"
-
 aztec start --node --archiver --sequencer \
   --network alpha-testnet \
   --l1-rpc-urls "$L1_RPC_URL" \
@@ -84,3 +93,4 @@ aztec start --node --archiver --sequencer \
   --sequencer.coinbase $COINBASE \
   --p2p.p2pIp=$P2P_IP \
   --p2p.maxTxPoolSize 1000000000
+  
