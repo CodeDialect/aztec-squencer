@@ -11,6 +11,14 @@ BOLD='\033[1m'
 
 echo -e "${CYAN}${BOLD}--- Installing Docker (Official Method) ---${RESET}"
 
+# ===============================
+# Clean up problematic NodeSource repo (Ubuntu 24.04 fix)
+# ===============================
+if [ -f /etc/apt/sources.list.d/nodesource.list ]; then
+  echo -e "${RED}[WARNING] Removing unsupported NodeSource repository...${RESET}"
+  sudo rm /etc/apt/sources.list.d/nodesource.list
+fi
+
 # Remove old versions
 echo -e "${CYAN}Removing old Docker versions (if any)...${RESET}"
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do
