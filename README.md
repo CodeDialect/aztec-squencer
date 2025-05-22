@@ -69,6 +69,7 @@ ufw allow 8080
 
 # Enable Firewall
 ufw enable
+ufw reload
 ```
 ---
 
