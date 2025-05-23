@@ -66,14 +66,20 @@ fi
 # ===============================
 # Install Aztec CLI (if not already installed)
 # ===============================
-if [ ! -f "$HOME/.aztec/bin/aztec" ]; then
+
+# Add Aztec bin path to PATH immediately (if not already there)
+AZTEC_BIN="$HOME/.aztec/bin"
+if [[ ":$PATH:" != *":$AZTEC_BIN:"* ]]; then
+  export PATH="$AZTEC_BIN:$PATH"
+fi
+
+# Install only if the aztec binary does not exist
+if [ ! -f "$AZTEC_BIN/aztec" ]; then
   echo -e "${BLUE}[INFO] Installing Aztec CLI...${RESET}"
   curl -s https://install.aztec.network | bash
   echo 'export PATH="$HOME/.aztec/bin:$PATH"' >> ~/.bashrc
-  export PATH="$HOME/.aztec/bin:$PATH"
 else
   echo -e "${GREEN}[INFO] Aztec CLI already installed. Skipping installation.${RESET}"
-  export PATH="$HOME/.aztec/bin:$PATH"  # Ensure it's available in this session
 fi
 
 
