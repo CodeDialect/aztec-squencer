@@ -66,14 +66,16 @@ fi
 # ===============================
 # Install Aztec CLI (if not already installed)
 # ===============================
-if ! command -v aztec &>/dev/null; then
+if [ ! -f "$HOME/.aztec/bin/aztec" ]; then
   echo -e "${BLUE}[INFO] Installing Aztec CLI...${RESET}"
   curl -s https://install.aztec.network | bash
   echo 'export PATH="$HOME/.aztec/bin:$PATH"' >> ~/.bashrc
   export PATH="$HOME/.aztec/bin:$PATH"
 else
   echo -e "${GREEN}[INFO] Aztec CLI already installed. Skipping installation.${RESET}"
+  export PATH="$HOME/.aztec/bin:$PATH"  # Ensure it's available in this session
 fi
+
 
 # ===============================
 # Setup Network
