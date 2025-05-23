@@ -77,7 +77,7 @@ export PATH="$HOME/.aztec/bin:$PATH"
 # Setup Network
 # ===============================
 echo -e "${BLUE}[INFO] Setting up Aztec alpha-testnet environment...${RESET}"
-aztec-up 0.85.0-alpha-testnet.9
+aztec-up alpha-testnet
 
 # ===============================
 # Start Node
