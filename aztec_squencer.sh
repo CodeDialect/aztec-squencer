@@ -15,19 +15,18 @@ BOLD='\033[1m'
 # BANNER
 # ===============================
 echo -e "${PURPLE}${BOLD}"
-echo "=========================================================================="
-cat <<'EOF'
-     __            _        _                    _                   
-  /\ \ \ _    | |  _ | |   _   _  _   | |_  _  _   __ 
- /  \/ // _ \  / _` | / _ \| '_ \ | | |  '_ \ | |/ _ \| '_  /
-/ /\  /| (_)  (_|   /| | |  |_|  | | || |_|  /| |    / / 
-\_\ \/  \_/  \,_| \__| |_| \,__| |_| \|\_||_|   /___/
-
-EOF
-echo "                        Aztec Node Installer by nodehunterz"
-echo "=========================================================================="
-echo -e "${RESET}"
-
+echo -e "${CYAN}
+ 
+ ______              _         _                                             
+|  ___ \            | |       | |                   _                        
+| |   | |  ___    _ | |  ____ | | _   _   _  ____  | |_   ____   ____  _____ 
+| |   | | / _ \  / || | / _  )| || \ | | | ||  _ \ |  _) / _  ) / ___)(___  )
+| |   | || |_| |( (_| |( (/ / | | | || |_| || | | || |__( (/ / | |     / __/ 
+|_|   |_| \___/  \____| \____)|_| |_| \____||_| |_| \___)\____)|_|    (_____)                   
+                                
+                                                                                                                                
+${YELLOW}                      :: Powered by Noderhunterz ::
+${NC}"
 # ===============================
 # Prompt for user variables
 # ===============================
@@ -65,13 +64,16 @@ if ! command -v node &>/dev/null; then
 fi
 
 # ===============================
-# Install Aztec CLI
+# Install Aztec CLI (if not already installed)
 # ===============================
-echo -e "${BLUE}[INFO] Installing Aztec CLI...${RESET}"
-curl -s https://install.aztec.network | bash
-
-echo 'export PATH="$HOME/.aztec/bin:$PATH"' >> ~/.bashrc
-export PATH="$HOME/.aztec/bin:$PATH"
+if ! command -v aztec &>/dev/null; then
+  echo -e "${BLUE}[INFO] Installing Aztec CLI...${RESET}"
+  curl -s https://install.aztec.network | bash
+  echo 'export PATH="$HOME/.aztec/bin:$PATH"' >> ~/.bashrc
+  export PATH="$HOME/.aztec/bin:$PATH"
+else
+  echo -e "${GREEN}[INFO] Aztec CLI already installed. Skipping installation.${RESET}"
+fi
 
 # ===============================
 # Setup Network
@@ -92,4 +94,3 @@ aztec start --node --archiver --sequencer \
   --sequencer.coinbase "$COINBASE" \
   --p2p.p2pIp="$P2P_IP" \
   --p2p.maxTxPoolSize 1000000000
-  
