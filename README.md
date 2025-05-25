@@ -60,16 +60,16 @@ If you are using vps then
 
 ```bash
 # Basic SSH Access
-ufw allow 22
-ufw allow ssh
+sudo ufw allow 22
+sudo ufw allow ssh
 
 # Aztec Sequencer Ports
-ufw allow 40400
-ufw allow 8080
+sudo ufw allow 40400
+sudo ufw allow 8080
 
 # Enable Firewall
-ufw enable
-ufw reload
+sudo ufw enable
+sudo ufw reload
 ```
 ---
 
