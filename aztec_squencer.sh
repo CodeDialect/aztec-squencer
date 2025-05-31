@@ -100,5 +100,4 @@ aztec start --node --archiver --sequencer \
   --l1-consensus-host-urls "$L1_CONSENSUS_URL" \
   --sequencer.validatorPrivateKey "$VALIDATOR_KEY" \
   --sequencer.coinbase "$COINBASE" \  
-  --p2p.p2pIp="$P2P_IP" \
-  --p2p.maxTxPoolSize 1000000000
+  --p2p.p2pIp="$P2P_IP"
