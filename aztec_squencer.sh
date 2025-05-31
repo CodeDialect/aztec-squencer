@@ -99,6 +99,6 @@ aztec start --node --archiver --sequencer \
   --l1-rpc-urls "$L1_RPC_URL" \
   --l1-consensus-host-urls "$L1_CONSENSUS_URL" \
   --sequencer.validatorPrivateKey "$VALIDATOR_KEY" \
-  --sequencer.coinbase "$COINBASE" \  
-  --p2p.p2pIp="$P2P_IP" \
+  --sequencer.coinbase "$COINBASE" \
+  --p2p.p2pIp "$P2P_IP" \
   --p2p.maxTxPoolSize 1000000000
