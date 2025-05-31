@@ -121,12 +121,41 @@ https://discord.gg/aztec and go to start operator channel
 /operator start
 ```
 
-3. Youâ€™ll be prompted to provide:
+3. You"ll be prompted to provide:
    - **Address**: Your validator (Ethereum) address  
    - **Block-number**: Block number from Step 9  
    - **Proof**: Base64 string from Step 10
 
 ---
+
+***Restart Your Node***:
+```bash
+screen -r aztec
+```
+
+press ctrl c (if node is running)
+
+write exit
+
+```bash
+cd $HOME
+```
+
+```bash
+rm -rf aztec-squencer
+```
+Repeat steps 2, 3, 5, 8
+
+
+If node still have an issue of auto shutdown
+
+then you need to clear all your previous testnet data **caution this below can also change your peer id**
+
+```bash
+rm -rf .aztec
+```
+and then repeat the ***Restart your node***
+
 
 **Note:** Press `Ctrl+A` then `D` to detach from the screen session. Reconnect later using:
 
