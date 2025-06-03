@@ -152,7 +152,7 @@ If node still have an issue of auto shutdown
 then you need to clear all your previous testnet data **caution this below can also change your peer id**
 
 ```bash
-rm -rf .aztec
+rm -rf $HOME/.aztec/alpha-testnet/data/
 ```
 and then repeat the ***Restart your node***
 
