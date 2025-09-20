@@ -87,7 +87,7 @@ fi
 # Setup Network
 # ===============================
 echo -e "${BLUE}[INFO] Setting up Aztec alpha-testnet environment...${RESET}"
-aztec-up 1.2.1
+aztec-up 2.0.2
 
 # ===============================
 # Start Node
@@ -95,7 +95,7 @@ aztec-up 1.2.1
 echo -e "${BLUE}[INFO] Starting Aztec node...${RESET}"
 
 aztec start --node --archiver --sequencer \
-  --network alpha-testnet \
+  --network testnet \
   --l1-rpc-urls "$L1_RPC_URL" \
   --l1-consensus-host-urls "$L1_CONSENSUS_URL" \
   --sequencer.validatorPrivateKeys "$VALIDATOR_KEY" \
