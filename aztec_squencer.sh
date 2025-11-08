@@ -87,7 +87,7 @@ fi
 # Setup Network
 # ===============================
 echo -e "${BLUE}[INFO] Setting up Aztec alpha-testnet environment...${RESET}"
-aztec-up 2.0.4
+aztec-up 2.1.2
 
 # ===============================
 # Start Node
